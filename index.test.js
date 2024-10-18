@@ -13,3 +13,9 @@ describe("basic test case", () => {
     expect(add("1,2")).toBe(3);
   });
 });
+
+describe("handle an unknown amount of numbers", () => {
+  test("should return the sum of all numbers when input contains unknown amount of numbers comma separated", () => {
+    expect(add("1,2,5,8,6,7,6,6")).toBe(41);
+  });
+});

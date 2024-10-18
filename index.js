@@ -1,12 +1,16 @@
 function add(num) {
   if (num.length > 1) {
-    let [val1, val2] = num.split(",");
-    return parseInt(val1) + parseInt(val2);
-  } 
-  else if (num.length == 1) {
+    let values = num.split(",");
+    let sum = 0;
+
+    for (let i = 0; i< values.length; i++) {
+      sum += parseInt(values[i]);
+    }
+
+    return sum;
+  } else if (num.length == 1) {
     return parseInt(num);
-  }
-  else {
+  } else {
     return 0;
   }
 }
