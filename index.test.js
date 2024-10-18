@@ -19,3 +19,9 @@ describe("handle an unknown amount of numbers", () => {
     expect(add("1,2,5,8,6,7,6,6")).toBe(41);
   });
 });
+
+describe("handle new lines between numbers", () => {
+  test("should return the sum of all numbers when input contains unknown amount of numbers comma or new line separated", () => {
+    expect(add("1\n2,3\n5")).toBe(11);
+  });
+});
