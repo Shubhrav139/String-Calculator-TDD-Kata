@@ -53,3 +53,9 @@ describe("Numbers bigger than '1000' should be ignored", () => {
     expect(add("1001,4")).toBe(4);
   });
 });
+
+describe("Delimiters can be of any length", () => {
+  test("should return the sum of all numbers when input contains custom delimiter of any length", () => {
+    expect(add("//[***]\n1***2***3")).toBe(6);
+  });
+});

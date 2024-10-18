@@ -4,7 +4,14 @@ function add(num) {
 
   if (num.startsWith("//")) {
     const delimiterEndIndex = num.indexOf("\n");
-    delimiter = new RegExp(num.substring(2, delimiterEndIndex));
+    let delimiterString = num.substring(2, delimiterEndIndex);
+    if (
+      delimiterString[0] == "[" &&
+      delimiterString[delimiterString.length - 1] == "]"
+    ) {
+      delimiterString.substring(1, delimiterString.length - 1);
+    }
+    delimiter = new RegExp(delimiterString);
     numbersString = num.substring(delimiterEndIndex + 1);
   }
 
