@@ -31,3 +31,15 @@ describe("support different delimiters", () => {
     expect(add("//;\n1;2")).toBe(3);
   });
 });
+
+describe("negative number will throw an exception", () => {
+  test("should throw an error when input contains negative numbers", () => {
+    expect(() => {
+      add("-1,-2");
+    }).toThrow("Negatives not allowed: -1, -2");
+  });
+
+  test("should return the sum when delimiter is '-'", () => {
+    expect(add("//-\n1-2")).toBe(3);
+  });
+});

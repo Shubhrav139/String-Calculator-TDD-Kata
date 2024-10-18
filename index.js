@@ -11,9 +11,20 @@ function add(num) {
   if (numbersString.length > 1) {
     let values = numbersString.split(delimiter);
     let sum = 0;
+    let negatives = [];
 
     for (let i = 0; i < values.length; i++) {
-      sum += parseInt(values[i]);
+      let value = parseInt(values[i]);
+
+      if (value < 0) {
+        negatives.push(value);
+      }
+
+      sum += value;
+    }
+
+    if (negatives.length > 0) {
+      throw new Error(`Negatives not allowed: ${negatives.join(", ")}`);
     }
 
     return sum;
