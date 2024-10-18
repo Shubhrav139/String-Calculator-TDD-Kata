@@ -25,3 +25,9 @@ describe("handle new lines between numbers", () => {
     expect(add("1\n2,3\n5")).toBe(11);
   });
 });
+
+describe("support different delimiters", () => {
+  test("should return the sum of all numbers when input contains unknown amount of numbers custom delimiter separated", () => {
+    expect(add("//;\n1;2")).toBe(3);
+  });
+});

@@ -1,7 +1,15 @@
 function add(num) {
-  if (num.length > 1) {
-    let re = /\n|,/;
-    let values = num.split(re);
+  let delimiter = /\n|,/;
+  let numbersString = num;
+
+  if (num.startsWith("//")) {
+    const delimiterEndIndex = num.indexOf("\n");
+    delimiter = new RegExp(num.substring(2, delimiterEndIndex));
+    numbersString = num.substring(delimiterEndIndex + 1);
+  }
+
+  if (numbersString.length > 1) {
+    let values = numbersString.split(delimiter);
     let sum = 0;
 
     for (let i = 0; i < values.length; i++) {
@@ -9,8 +17,8 @@ function add(num) {
     }
 
     return sum;
-  } else if (num.length == 1) {
-    return parseInt(num);
+  } else if (numbersString.length == 1) {
+    return parseInt(numbersString);
   } else {
     return 0;
   }
