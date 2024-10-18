@@ -10,7 +10,17 @@ function add(num) {
       delimiterString[delimiterString.length - 1] == "]"
     ) {
       delimiterString.substring(1, delimiterString.length - 1);
+
+      if (delimiterString.includes("[")) {
+        delimiterString = delimiterString.replace(/\[|\]/g, "");
+
+        delimiterString = delimiterString
+          .split("")
+          .map((del) => escapeSpecialChars(del))
+          .join("|");
+      }
     }
+
     delimiter = new RegExp(delimiterString);
     numbersString = num.substring(delimiterEndIndex + 1);
   }
@@ -42,6 +52,10 @@ function add(num) {
   } else {
     return 0;
   }
+}
+
+function escapeSpecialChars(delimiter) {
+  return delimiter.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
 module.exports = add;
