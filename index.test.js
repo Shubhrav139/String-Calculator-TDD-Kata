@@ -64,4 +64,8 @@ describe("Allow multiple delimiters", () => {
   test("should return the sum of all numbers when input contains multiple custom delimiter", () => {
     expect(add("//[*][%]\n1*2%3")).toBe(6);
   });
+
+  test("should return the sum of all numbers when input contains multiple custom delimiter of any length", () => {
+    expect(add("//[*#][%%%]\n1*#2%%%3")).toBe(6);
+  });
 });
