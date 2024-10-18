@@ -18,9 +18,9 @@ function add(num) {
 
       if (value < 0) {
         negatives.push(value);
+      } else if (value <= 1000) {
+        sum += value;
       }
-
-      sum += value;
     }
 
     if (negatives.length > 0) {
@@ -29,7 +29,9 @@ function add(num) {
 
     return sum;
   } else if (numbersString.length == 1) {
-    return parseInt(numbersString);
+    let value = parseInt(numbersString);
+
+    return value > 1000 ? 0 : value;
   } else {
     return 0;
   }

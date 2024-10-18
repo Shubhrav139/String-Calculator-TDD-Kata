@@ -43,3 +43,13 @@ describe("negative number will throw an exception", () => {
     expect(add("//-\n1-2")).toBe(3);
   });
 });
+
+describe("Numbers bigger than '1000' should be ignored", () => {
+  test("should ignore a number if it is bigger than '1000'", () => {
+    expect(add("1001")).toBe(0);
+  });
+
+  test("should ignore a number if it is bigger than '1000'", () => {
+    expect(add("1001,4")).toBe(4);
+  });
+});
